@@ -31,3 +31,108 @@ Installation Note: The instructions were compiled as the first installation was 
 
 5. Web server - This was tested with lighttpd but others should work as well.
 
+### Determining Latitude / Longitude Settings for Runways
+
+Making sure the minimum / maximum latitude and longitude are set correctly is a key factor in accurately identifying aircraft takeoffs and landings.  See the included file, airport.jpg, as an example.
+
+Two boxes are created using min / max latitude and longitude.  Note that because the boxes end up being oriented to lines of latitude and longitude, they aren’t square to the runway unless the runway is either 18 / 36 or 09 / 27.
+
+The boxes should be about ¾ mile wide and 1 mile long with the long side as close to parallel to the runway as possible.
+
+The boxes shouldn’t include any of the runway area.  If so, duplicate landing / takeoff operations will be logged.
+
+See the included “airport.jpg” as an example with the boxes plotted.  The runways for this airport are 16 and 34.  
+
+In the planetrax.conf file, the “a” coordinates are the runway 16 approach area / runway 34 departure area.   The “b” coordinates are the runway 34 approach area / runway 16 departure area.
+
+The boxes shouldn’t include any of the runway itself.  If so, duplicate landing / takeoff operations will be logged.
+
+### Installation
+
+### Web Server
+
+sudo chmod /var/www/ 777 -R (This will allow user ‘pi’ to write files)
+
+md /var/www/html/planetrax
+
+chmod 777 /var/www/html/planetrax
+
+cp stats.php /var/www/html/planetrax/stats.php
+
+cp db_constants.php  /var/www/html/planetrax/db_constants.php
+
+### Database Server
+sudo apt install mariadb-server
+
+sudo apt-get install php7.4-mysql
+
+**Set user permissions**
+
+sudo mysql
+
+create user ‘pi’@’%’ identified by ‘adsb123’;
+
+GRANT ALL PRIVILEGES ON *.* TO 'pi'@'%';
+
+**Create database and tables**
+
+mysql -upi -padsb123
+
+create database planetrax
+
+create table using create_table_ops.sql
+
+create table using create_table_ops_log.sql
+
+**Enable remote access**
+
+cd /etc/mysql/mariadb.conf.d
+
+sudo nano 50-server.conf
+
+change the bind address from 127.0.0.1 to 0.0.0.0
+
+sudo service mariadb restart
+
+### Plane Trax
+
+sudo cp  planetrax.conf /etc/planetrax.conf
+
+sudo nano planetrax.conf 
+
+set lat / lon parameters
+
+sudo chmod 777 /etc/planetrax.conf
+
+md /usr/local/planetrax
+
+chmod 777 /usr/local/planetrax
+
+cp planetrax.php /usr/local/planetrax/planetrax.php
+
+chmod 777 /usr/local/planetrax/planetrax.php
+
+cp db_constants.php  /usr/local/planetrax/db_constants.php
+
+chmod 777 /usr/local/planetrax/db_constants.php
+
+### Service
+
+cp planetrax.service to /etc/systemd/system/planetrax.service
+
+sudo chmod 644 /etc/systemd/system/planetrax.service
+
+sudo systemctl enable planetrax.service
+
+sudo systemctl start planetrax.service
+
+sudo systemctl status planetrax.service
+
+sudo strace -e write -s 999 -p *id from status command*
+
+### Test
+
+php /var/www/html/planetrax/stats.php
+
+http://*ip of pi*/planetrax/stats.php
+
