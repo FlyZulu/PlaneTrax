@@ -14,7 +14,9 @@ Since multiple messages will be received from dump1090 and dump978 for each take
  
 Optionally, log entries are written to the ops_log table in the database for all aircraft within a defined area.  This is used for debugging purposes.
 
-Determining the latitude / longitude limits for each runway for the airport is a key requirement for the logging to function accurately.  Please see the attached file “???” for information on how to develop these coordinates.
+Determining the latitude / longitude limits for each runway for the airport is a key requirement for the logging to function accurately.  
+
+See the included file "install.docx" for installation instructions.
 
 Installation Note: These instructions were compiled as the first installation was made and have not been tested.  Inconsistencies will likely be found in those using them.  Please E-Mail info@planetrax.com with any corrections.
 
