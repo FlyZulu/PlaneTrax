@@ -17,7 +17,7 @@ Determining the latitude / longitude limits for each runway for the airport is a
 
 *Installation Note: The instructions were compiled as the first installation was made and have not been tested.  Inconsistencies will likely be found in them.* 
 
-E-Mail to (info@planetrax.com) with questions.
+E-Mail to [info@planetrax.com](info@planetrax.com) with questions.
 
 ### Prerequisites
 1. An ADS-B receiver near the airport to be tracked.  This should be running on a Raspberry pi with dump1090 and / or dump978 installed.  This was tested on ADS-B Exchange build 8.2.220910 executing on a Raspberry Pi 4 but will likely work with other feeders.  See [ADSB Exchange Installation](https://www.adsbexchange.com/share-your-data/adsbx-custom-pi-image/#google_vignette) for installation instructions for the feeder.
