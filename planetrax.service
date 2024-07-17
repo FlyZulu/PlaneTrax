@@ -1,0 +1,13 @@
+[Unit]
+Description=planetrax.php
+    
+[Service]
+ExecStart=php /usr/local/planetrax/planetrax.php
+Restart=always
+RestartSec=10
+StandardOutput=null
+StandardError=null
+    
+[Install]
+WantedBy=mulls -ti-user.target
+
