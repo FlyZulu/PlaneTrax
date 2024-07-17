@@ -11,7 +11,7 @@ It is determined whether the aircraft position, heading, and altitude represent 
 
 Since multiple messages will be received from dump1090 and dump978 for each takeoff and landing sequence, it is determined whether an operation has already been logged for this sequence or if this is a duplicate.  If not a duplicate, an entry is written to the ops table in the database.
  
-Optionally, log entries are written to the ops_log table in the database for all aircraft within a defined area.  This is used for debugging purposes.
+Optionally, log entries are written to a table in the database for all aircraft within a defined area.  This is used for debugging purposes.
 
 Determining the latitude / longitude limits for each runway for the airport is a key requirement for the logging to function accurately.  
 
