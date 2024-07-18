@@ -32,7 +32,9 @@ E-Mail to (info@planetrax.com) with questions.
 
 ### Determining Latitude / Longitude Settings for Runways
 
-Making sure the minimum / maximum latitude and longitude are set correctly is a key factor in accurately identifying aircraft takeoffs and landings.  See the included file, airport.jpg, as an example.
+Making sure the minimum / maximum latitude and longitude are set correctly is a key factor in accurately identifying aircraft takeoffs and landings. 
+
+See the included file, airport.jpg, as an example.  The runways for this airport are 16 and 34.  
 
 Two boxes are created using min / max latitude and longitude.  Note that because the boxes end up being oriented to lines of latitude and longitude, they aren’t square to the runway unless the runway is either 18 / 36 or 09 / 27.
 
@@ -40,13 +42,13 @@ The boxes should be about ¾ mile wide and 1 mile long with the long side as clo
 
 The boxes shouldn’t include any of the runway area.  If so, duplicate landing / takeoff operations will be logged.
 
-See the included “airport.jpg” as an example with the boxes plotted.  The runways for this airport are 16 and 34.  
-
 In the supplied planetrax.conf file, the “a” coordinates are the runway 16 approach area / runway 34 departure area.   The “b” coordinates are the runway 34 approach area / runway 16 departure area.
 
 ### Installation
 
 ### Web Server
+
+*Note: The Web Server is only required to view the sample output from the stats.php file.  This isn't required for data collection.* 
 
 sudo chmod /var/www/ 777 -R (This will allow user ‘pi’ to write files)
 
