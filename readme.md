@@ -67,9 +67,7 @@
 
 *Note: The Web Server is only required to view the sample output from the stats.php file.  This isn't required for data collection.* 
 
-This will allow user ‘pi’ to write files:
-
-    sudo chmod /var/www/ 777 -R 
+    sudo chmod /var/www/ 777 -R (This will allow user ‘pi’ to write files)
 
     md /var/www/html/planetrax
 
@@ -90,7 +88,7 @@ This will allow user ‘pi’ to write files:
 
     create user ‘pi’@’%’ identified by ‘adsb123’;
 
-GRANT ALL PRIVILEGES ON *.* TO 'pi'@'%';
+    GRANT ALL PRIVILEGES ON *.* TO 'pi'@'%';
 
 **Create database and tables**
 
